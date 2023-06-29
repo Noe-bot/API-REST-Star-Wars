@@ -1,0 +1,253 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Star Wars",
+    "version": "1.0.0",
+    "description": "Une API pour voir les meilleures informations sur Star Wars !!"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/film": {
+      "get": {
+        "summary": "Récupère tous les films",
+        "responses": {
+          "200": {
+            "description": "Succès de la requête",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Film"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Permet d'ajouter des films",
+        "responses": {
+          "201": {
+            "description": "Succès de la requête",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Film"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/film/:id": {
+      "get": {
+        "summary": "Récupère un film",
+        "responses": {
+          "200": {
+            "description": "Succès de la requête",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Film"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Permet de modifier des films",
+        "responses": {
+          "201": {
+            "description": "Succès de la requête",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Film"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Permet de supprimer des films",
+        "responses": {
+          "200": {
+            "description": "Succès de la requête",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Film"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/people": {
+      "get": {
+        "summary": "Récupère tous les personnages",
+        "responses": {
+          "200": {
+            "description": "Succès de la requête",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/People"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Permet d'ajouter des personnages",
+        "responses": {
+          "201": {
+            "description": "Succès de la requête",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/People"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/people/:id": {
+      "get": {
+        "summary": "Récupère un personnage",
+        "responses": {
+          "200": {
+            "description": "Succès de la requête",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/People"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Permet de modifier des personnages",
+        "responses": {
+          "201": {
+            "description": "Succès de la requête",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/People"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Permet de supprimer des personnages",
+        "responses": {
+          "200": {
+            "description": "Succès de la requête",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/People"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Film": {
+        "title": "String",
+        "episode_id": "Number",
+        "opening_crawl": "String",
+        "director": "String",
+        "producer": "String",
+        "release_date": "Date",
+        "characters": [
+          {
+            "type": "mongoose.Schema.Types.ObjectId",
+            "ref": "Person"
+          }
+        ],
+        "starships": [
+          {
+            "type": "mongoose.Schema.Types.ObjectId",
+            "ref": "Starship"
+          }
+        ]
+      },
+      "People": {
+        "name": "String",
+        "height": "String",
+        "mass": "String",
+        "hair_color": "String",
+        "skin_color": "String",
+        "eye_color": "String",
+        "birth_year": "String",
+        "gender": "String",
+        "homeworld": {
+          "type": "mongoose.Schema.Types.ObjectId",
+          "ref": "Planet"
+        },
+        "films": ["String"],
+        "species": ["String"],
+        "vehicles": ["String"],
+        "starships": ["String"],
+        "created": {
+          "type": "Date",
+          "default": "Date.now"
+        },
+        "edited": {
+          "type": "Date",
+          "default": "Date.now"
+        }
+      }
+    }
+  }
+}

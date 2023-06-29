@@ -1,0 +1,13 @@
+Le modèle de Richardson, également connu sous le nom d'architecture REST (Representational State Transfer), est un concept clé dans la conception et le développement des API. Ce modèle tire son nom du célèbre informaticien britannique Leonard Richardson, qui a formulé les principes fondamentaux de cette approche.
+
+Il repose sur l'idée de fournir une structure claire et cohérente pour l'exposition des fonctionnalités d'une application via une API. Il définit un ensemble de contraintes architecturales qui guident la conception de l'API et permettent une communication efficace entre les clients et les serveurs.
+
+L'une des principales caractéristiques du modèle de Richardson est son approche centrée sur les ressources. Il encourage la représentation des fonctionnalités de l'application en tant que ressources, accessibles via des URI (Uniform Resource Identifiers). Comme dans le cadre de cette API, les ressource sont manipulées à travers des opérations standardisées, qui sont dans notre cas GET, POST, PUT et DELETE.
+
+Une autre composante clé du modèle de Richardson est l'utilisation des hyperliens pour lier les ressources entre elles. Cela permet de naviguer facilement d'une ressource à une autre et de découvrir les fonctionnalités supplémentaires offertes par l'API. Les hyperliens favorisent une API auto-descriptive et réduisent la dépendance du client à la connaissance préalable de la structure de l'API. Ici, c'est grâce à Swagger que nous pouvons facilement comprendre quelles sont les différentes fonctionnalités de l'API.
+
+Le modèle de Richardson promeut également l'utilisation d'un protocole de communication sans état, ce qui signifie que chaque requête client est indépendante et auto-suffisante. Le serveur n'a pas besoin de conserver l'état de la session entre les requêtes, ce qui simplifie la gestion de la communication et facilite la mise à l'échelle.
+
+Nous pouvons donc dire que cette aplication respecte la majorité des principes de Richardson.
+
+Pour revenir sur le projet, l'intégration du Swagger fut une tâche des plus ardue (http://localhost:3000/api-docs/), mais au moins, les endpoints sont fonctionnels. Après une tentative infructueuse de refactoring, j'ai décidé de garder les schémas dans app.js en espérant que les commentaires rendent la lecture plus digeste.  J'ai intégré les authentifications JWT sur les endpoints concernants les planètes et vous pouvez accèder à l'authentification via "/login".
